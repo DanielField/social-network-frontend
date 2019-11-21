@@ -36,7 +36,7 @@ class Login extends Component {
                 localStorage.setItem('usertoken', data.usertoken);
                 this.props.history.push(Strings.ROUTE_HOME);
             } else {
-                document.getElementById('status').innerText = "Invalid username and/or password.";
+                document.getElementById('status').innerText = data.error;
             }
         }).catch(() => {
             document.getElementById('status').innerText = "There was an error while attempting to login.";
