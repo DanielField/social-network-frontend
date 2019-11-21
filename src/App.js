@@ -4,6 +4,7 @@ import './App.css';
 
 /* Components */
 import PageNotFound from './components/PageNotFound';
+import Login from './components/login/Login';
 
 function App() {
     return (
@@ -11,8 +12,8 @@ function App() {
             <div className="App">
                 <div className="container">
                     <Switch>
-                        {/* <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
+                        {/* <Route exact path="/register" component={Register} />
                         <Route exact path="/profile" component={Profile} />
                         <Route exact path="/logout" component={Logout} />
                         <Route exact path="/" component={Home} /> */}
