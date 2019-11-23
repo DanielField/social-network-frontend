@@ -17,6 +17,5 @@ export const confirmLoggedIn = (token, key) => {
     } catch { 
         value = 0; 
     }
-    console.log(value);
     return value;
 };

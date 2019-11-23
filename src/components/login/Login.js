@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Strings from '../../strings';
+import { post } from '../../util/Fetch';
 
 class Login extends Component {
     constructor() {
@@ -26,12 +27,7 @@ class Login extends Component {
             password: this.state.password
         };
 
-        fetch(Strings.PROXY + Strings.ROUTE_LOGIN, {
-            method: 'post',
-            mode: 'cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(creds)
-        }).then(response => response.json()).then(data => {
+        post(Strings.ROUTE_LOGIN, creds).then(data => {
             if (data.usertoken !== undefined) {
                 localStorage.setItem('usertoken', data.usertoken);
                 this.props.history.push(Strings.ROUTE_HOME);

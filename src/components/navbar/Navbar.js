@@ -45,7 +45,7 @@ class Navbar extends Component {
                         My Profile
                     </a>
                 </li>
-                {(confirmAdmin(localStorage.usertoken))? adminButtons : null}
+                {(confirmAdmin(localStorage.usertoken, process.env.SECRET_KEY))? adminButtons : null}
             </ul>
         );
 
