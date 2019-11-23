@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import process from 'process';
 
 export const confirmAdmin = (token, key) => {
     try {
