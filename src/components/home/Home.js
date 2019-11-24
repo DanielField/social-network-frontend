@@ -17,9 +17,6 @@ class Home extends Component {
     }
 
     onChange(value, _id) {
-        // reset the status text.
-        document.getElementById(`status_${_id}`).innerText = "";
-
         if (_id !== this.state.selectedPost) {
             this.setState({ selectedPost: _id });
         }
@@ -64,7 +61,7 @@ class Home extends Component {
                 <a class="post-username" href="/user/${user}">${user}</a>
                 <p class="post-date">Now</p>
             </div>
-            <p>${this.state.replyContent}</p>
+            <p id="content_${_id + user + time}">${this.state.replyContent}</p>
         </div>
         `;
         this.setState({replyContent: ""});
@@ -72,11 +69,10 @@ class Home extends Component {
         post(Strings.ROUTE_REPLY + _id, {content: this.state.replyContent}).then(result => {
             document.getElementById(_id + user + time).style = "border-color: #00cc00;";
         }).catch(error => {
-            // If it failed to send, remove the reply by reverting to the previous state of the post-replies div.
-            // document.getElementById("post-replies").innerHTML = html;
-            document.getElementById(`status_${_id}`).innerText = "Failed to submit your reply.";
-
             document.getElementById(_id + user + time).style = "border-color: #cc0000; color: #999999;";
+
+            let failedReplyContent = document.getElementById("content_" + _id + user + time).innerText;
+            document.getElementById("content_" + _id + user + time).innerHTML = failedReplyContent + '<i style="color: #ff0000">&nbsp;(Failed to send!)</i>';
         });
     }
 
@@ -118,7 +114,6 @@ class Home extends Component {
                             <input type="text" className="post-make-reply" onKeyPress={e => {if (e.key === "Enter") { this.onReplySubmit(post._id) }}} name={"reply" + index} onChange={e => this.onChange(e.target.value, post._id)} placeholder="Reply here" value={this.state.selectedPost === post._id ? this.state.replyContent : ""}/>
                             <button className="post-make-reply-button" onClick={this.onReplySubmit.bind(this, post._id)}><i className="material-icons">play_arrow</i></button>
                         </div>
-                        <p id={"status_"+post._id}></p>
                     </div>
                 )) : null}
             </div>
