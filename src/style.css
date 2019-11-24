@@ -39,4 +39,63 @@
     margin: auto;
     margin-top: 1rem;
     background-color: #eeeeee;
+    text-align: left;
+  }
+
+  .post-title {
+    color: #888888;
+    position: relative;
+  }
+
+  .post-username {
+      display: inline;
+      text-decoration: none;
+      color: #222222;
+      font-weight: bold;
+  }
+
+  .post-date {
+      display: inline;
+      text-align: right;
+      position: absolute;
+      right: 0px;
+      top: -1rem;
+  }
+
+  .post-content {
+    margin: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .post-replies {
+    margin: 1rem 0 1rem 1rem;
+  }
+
+  .post-reply {
+    border-left: #aaaaaa solid 2px;
+    padding-left: 0.3rem;
+  }
+
+  .post-make-reply-container {
+    position: relative;
+    margin-top: 3rem;
+  }
+
+  .post-make-reply {
+      display: block;
+      margin-top: 1rem;
+      width: 100%;
+      border-radius: 0.3rem;
+      border: #aaaaaa solid 1px;
+      position: absolute;
+      bottom: 1rem;
+  }
+
+  .post-make-reply-button {
+      position: absolute;
+      background: none;
+      right: 0px;
+      bottom: 0.6rem;
+      border: none;
+      padding: 0px;
   }
