@@ -91,11 +91,17 @@
       bottom: 1rem;
   }
 
-  .post-make-reply-button {
-      position: absolute;
-      background: none;
-      right: 0px;
-      bottom: 0.6rem;
-      border: none;
-      padding: 0px;
+  .post-replies-button {
+    border-style: none;
+    background-color: transparent;
+    color: #0033ff;
+  }
+
+  .post-replies-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .post-replies-button:focus {
+      outline: none;
   }
